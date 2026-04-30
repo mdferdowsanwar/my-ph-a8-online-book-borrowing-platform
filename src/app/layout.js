@@ -18,9 +18,9 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       data-theme="light"
-      className={`${montserrat.className} h-full antialiased`}
+      className="h-full antialiased"
     >
-      <body className="min-h-full flex flex-col">
+      <body className={`${montserrat.className} min-h-full flex flex-col`}>
         <Navbar></Navbar>
         {children}
         <Footer></Footer>
