@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "title": "The Silent Forest",
+    "author": "Ayesha Rahman",
+    "description": "A mysterious tale of a village surrounded by a forest where no one dares to enter.",
+    "category": "Story",
+    "available_quantity": 8,
+    "image_url": "https://m.media-amazon.com/images/I/91D8vCU1g2L._UF1000,1000_QL80_.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Learning JavaScript Basics",
+    "author": "Ferdous Karim",
+    "description": "An introductory guide to JavaScript for beginners with practical examples.",
+    "category": "Tech",
+    "available_quantity": 15,
+    "image_url": "https://m.media-amazon.com/images/I/81DOrRL5FLL._UF1000,1000_QL80_.jpg"
+  },
+  {
+    "id": 3,
+    "title": "The Solar System Explained",
+    "author": "Nusrat Jahan",
+    "description": "A comprehensive look into planets, stars, and the mysteries of our solar system.",
+    "category": "Science",
+    "available_quantity": 10,
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT8kJCTSrabLs6GtFYEOUfomhgFkK565nvxw&s"
+  },
+  {
+    "id": 4,
+    "title": "Lost in the City",
+    "author": "Imran Hossain",
+    "description": "A gripping story of survival and discovery in a bustling urban jungle.",
+    "category": "Story",
+    "available_quantity": 6,
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEG8NaMGK4X6NU4Wk_Fqt59Q4G180Hl9N_tQ&s"
+  },
+  {
+    "id": 5,
+    "title": "Mastering React",
+    "author": "Tanvir Ahmed",
+    "description": "Advanced concepts and real-world applications of React for developers.",
+    "category": "Tech",
+    "available_quantity": 12,
+    "image_url": "https://m.media-amazon.com/images/I/81EUH55ABRL._UF1000,1000_QL80_.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Quantum Physics Simplified",
+    "author": "Dr. Samiul Islam",
+    "description": "An easy-to-understand introduction to quantum physics and its principles.",
+    "category": "Science",
+    "available_quantity": 7,
+    "image_url": "https://m.media-amazon.com/images/I/61qRQe068ZL._AC_UF350,350_QL50_.jpg"
+  },
+  {
+    "id": 7,
+    "title": "The Last Letter",
+    "author": "Sharmeen Akter",
+    "description": "A touching story about love, loss, and the power of written words.",
+    "category": "Story",
+    "available_quantity": 9,
+    "image_url": "https://www.bookowlsbd.com/cdn/shop/files/thelasthour.png?v=1749545419&width=1920"
+  },
+  {
+    "id": 8,
+    "title": "Node.js in Practice",
+    "author": "Rakib Hasan",
+    "description": "A hands-on guide to building scalable applications using Node.js.",
+    "category": "Tech",
+    "available_quantity": 11,
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtpPFAWp_3uyMfd422u3-aJ9RndlbeAtiGfQ&s"
+  },
+  {
+    "id": 9,
+    "title": "The Human Brain",
+    "author": "Dr. Farhana Kabir",
+    "description": "Explore the complexities and wonders of the human brain.",
+    "category": "Science",
+    "available_quantity": 5,
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5Kbi5gSe2GMDpDUk0gJm0G_4OPvl8F8sV2w&s"
+  },
+  {
+    "id": 10,
+    "title": "Echoes of the Past",
+    "author": "Mahmudul Haque",
+    "description": "A historical story uncovering secrets buried for generations.",
+    "category": "Story",
+    "available_quantity": 4,
+    "image_url": "https://cityreadsbookstore.com/cdn/shop/files/Echoes-from-the-Past.jpg?v=1696262919"
+  },
+  {
+    "id": 11,
+    "title": "CSS Mastery",
+    "author": "Jahidul Islam",
+    "description": "Learn modern CSS techniques to build responsive and beautiful websites.",
+    "category": "Tech",
+    "available_quantity": 14,
+    "image_url": "https://m.media-amazon.com/images/I/51IBIZFewfL._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Climate Change and Future",
+    "author": "Dr. Rezaul Karim",
+    "description": "An insightful analysis of climate change and its impact on our planet.",
+    "category": "Science",
+    "available_quantity": 6,
+    "image_url": "https://cup-us.imgix.net/covers/9780231547871.jpg?auto=format&w=350"
+  }
+]
