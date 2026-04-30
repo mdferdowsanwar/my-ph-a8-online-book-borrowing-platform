@@ -1,29 +1,26 @@
 import Link from 'next/link';
 import React from 'react';
+import NavLink from './NavLink';
 
 const Navbar = () => {
     return (
         <div className='shadow mb-3'>
             <div className='w-9/12 mx-auto flex flex-col md:flex-row justify-between items-center gap-3 py-3'>
                 <Link href={"/"} className='text-xl font-semibold'>Online<span className='text-[#ffda79] font-bold'>BookBorrowing</span></Link>
-                <ul className='flex justify-between items-center gap-3 font-semibold'>
+                <ul className='flex justify-between items-center gap-3'>
                     <li>
-                        <Link href={"/"}>Home</Link>
+                        <NavLink href={"/"}>Home</NavLink>
                     </li>
                     <li>
-                        <Link href={"/all-books"}>All Books</Link>
+                        <NavLink href={"/all-books"}>All Books</NavLink>
                     </li>
                     <li>
-                        <Link href={"/my-profile"}>My Profile</Link>
+                        <NavLink href={"/my-profile"}>My Profile</NavLink>
                     </li>
                 </ul>
                 <div>
-                    <button className='btn btn-neutral btn-sm mr-2'>
-                        <Link href={"/login"}>Login</Link>
-                    </button>
-
                     <button className='btn btn-neutral btn-sm'>
-                        <Link href={"/register"}>Register</Link>
+                        <Link href={"/login"}>Login</Link>
                     </button>
                 </div>
             </div>
