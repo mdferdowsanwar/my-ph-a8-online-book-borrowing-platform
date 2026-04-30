@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const BookCard = ({ book }) => {
@@ -21,8 +22,9 @@ const BookCard = ({ book }) => {
                 </figure>
                 <div>
                     <h2 className="text-xl font-semibold">{book.title}</h2>
-                    <p className='text-sm'>{book.author}</p>
-                    <button className="btn btn-sm btn-neutral w-full">View Details</button>
+                    <Link href={`/all-books/${book.id}`}>
+                        <button className="btn btn-sm btn-neutral w-full">View Details</button>
+                    </Link>
                 </div>
             </div>
         </div>
