@@ -1,20 +1,33 @@
 "use client"
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 
 const LoginPage = () => {
-    const { register, handleSubmit, formState: { errors }, watch } = useForm();
-    
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const [isShowPassword, setIsShowPassword] = useState(false);
+
     const handleLoginFunc = async (data) => {
-        const {email, password} = data;
-        const { data:res, error } = await authClient.signIn.email({
+        const { email, password } = data;
+        const { data: res, error } = await authClient.signIn.email({
             email: email,
             password: password,
             rememberMe: true,
             callbackURL: "/",
         });
     }
+
+    const handleGoogleLogin = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        });
+    }
+
+
+
     return (
         <div className="w-9/12 mx-auto my-10">
             <div className="bg-base-200 p-5 rounded-lg w-5/12 mx-auto">
@@ -30,20 +43,29 @@ const LoginPage = () => {
                         />
                         {errors.email && <p className="text-red-600">{errors.email.message}</p>}
                     </fieldset>
-                    <fieldset className="fieldset">
+                    <fieldset className="fieldset relative">
                         <legend className="fieldset-legend">Password</legend>
                         <input
                             {...register("password", { required: "Password field is required" })}
-                            type="password" className="input w-full"
                             placeholder="Type your password"
+                            type={isShowPassword ? "text" : "password"} className="input w-full"
                         />
-                        <p>{watch("password")}</p>
+                        <span onClick={() => setIsShowPassword(!isShowPassword)} className="text-lg absolute cursor-pointer right-2 top-4 text-gray-600">
+                            {isShowPassword ? <FaEye /> : <FaEyeSlash />}
+                        </span>
                         {errors.password && <p className="text-red-600">{errors.password.message}</p>}
                     </fieldset>
                     <button className="btn btn-neutral w-full mt-3">Login</button>
                 </form>
 
                 <p className="text-center mt-3">Don't have an account? <Link href={"/register"}><span className="font-semibold text-[#ffda79]">Register.</span></Link> </p>
+                <p className="text-center">OR</p>
+                <div className="flex items-center justify-center">
+                    <button className="btn btn-neutral" onClick={handleGoogleLogin}>
+                        <FaGoogle />
+                        Login with Google
+                    </button>
+                </div>
             </div>
         </div>
     );

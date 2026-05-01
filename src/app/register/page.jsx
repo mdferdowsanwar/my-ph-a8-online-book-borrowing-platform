@@ -1,16 +1,19 @@
 "use client"
 import { authClient } from '@/lib/auth-client';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const RegisterPage = () => {
-    
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    
-    const handleRegisterFunc = async (data) => {
-        const {name, email, image_url, password} = data;
 
-        const { data:res, error } = await authClient.signUp.email({
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const [isShowPassword, setIsShowPassword] = useState(false);
+
+    const handleRegisterFunc = async (data) => {
+        const { name, email, image_url, password } = data;
+
+        const { data: res, error } = await authClient.signUp.email({
             name: name,
             email: email,
             password: password,
@@ -18,10 +21,10 @@ const RegisterPage = () => {
             callbackURL: "/",
         });
         //console.log(res, error);
-        if(error){
+        if (error) {
             alert(error.message);
         }
-        if(res){
+        if (res) {
             alert("You have successfully registered");
         }
     }
@@ -36,38 +39,42 @@ const RegisterPage = () => {
                 <form onSubmit={handleSubmit(handleRegisterFunc)} className="space-y-2">
                     <fieldset className="fieldset">
                         <legend className="fieldset-legend">Name</legend>
-                        <input type="text" 
-                            className="input w-full" 
+                        <input type="text"
+                            className="input w-full"
                             placeholder="Type your name"
-                            {...register("name", { required: "Name field is required" })} 
+                            {...register("name", { required: "Name field is required" })}
                         />
                         {errors.name && <p className='text-red-600'>{errors.name.message}</p>}
                     </fieldset>
                     <fieldset className="fieldset">
                         <legend className="fieldset-legend">Email</legend>
-                        <input type="email" 
-                            className="input w-full" 
+                        <input type="email"
+                            className="input w-full"
                             placeholder="Type your email"
-                            {...register("email", { required: "Email field is required" })} 
+                            {...register("email", { required: "Email field is required" })}
                         />
                         {errors.email && <p className='text-red-600'>{errors.email.message}</p>}
                     </fieldset>
                     <fieldset className="fieldset">
                         <legend className="fieldset-legend">Image URL</legend>
-                        <input type="text" 
-                            className="input w-full" 
+                        <input type="text"
+                            className="input w-full"
                             placeholder="Type your image url"
-                            {...register("image_url", { required: "Image Url field is required" })}  
+                            {...register("image_url", { required: "Image Url field is required" })}
                         />
                         {errors.image_url && <p className='text-red-600'>{errors.image_url.message}</p>}
                     </fieldset>
-                    <fieldset className="fieldset">
+                    <fieldset className="fieldset relative">
                         <legend className="fieldset-legend">Password</legend>
-                        <input type="password" 
-                            className="input w-full" 
+                        <input
+                            type={isShowPassword ? "text" : "password"}
+                            className="input w-full"
                             placeholder="Type your password"
-                            {...register("password", { required: "Password field is required" })}  
+                            {...register("password", { required: "Password field is required" })}
                         />
+                        <span onClick={() => setIsShowPassword(!isShowPassword)} className="text-lg absolute cursor-pointer right-2 top-4 text-gray-600">
+                            {isShowPassword ? <FaEye /> : <FaEyeSlash />}
+                        </span>
                         {errors.password && <p className='text-red-600'>{errors.password.message}</p>}
                     </fieldset>
                     <button className="btn btn-neutral w-full mt-3">Register</button>
