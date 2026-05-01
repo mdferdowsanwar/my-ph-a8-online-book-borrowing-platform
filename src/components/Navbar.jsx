@@ -4,10 +4,19 @@ import React from 'react';
 import NavLink from './NavLink';
 import { authClient } from "@/lib/auth-client"
 import Image from 'next/image';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
     const { data: session, isPending } = authClient.useSession();
     const user = session?.user;
+    const handleLogout = async () => {
+        const {error} = await authClient.signOut();
+        if(error) return toast.error("Logout Failed.");
+        toast.success("Successfully Logout");
+    }
+
+
+
     return (
         <div className='shadow mb-3'>
             <div className='w-9/12 mx-auto flex flex-col md:flex-row justify-between items-center gap-3 py-3'>
@@ -33,7 +42,7 @@ const Navbar = () => {
                             width={50}
                             height={50}
                         /> */}
-                        <button onClick={async() => await authClient.signOut()} className='btn btn-neutral btn-sm'>
+                        <button onClick={handleLogout} className='btn btn-neutral btn-sm'>
                             Logout
                         </button>
                     </div>

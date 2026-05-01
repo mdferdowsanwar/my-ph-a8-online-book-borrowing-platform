@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -18,10 +19,17 @@ const LoginPage = () => {
             rememberMe: true,
             callbackURL: "/",
         });
+        if (error) {
+            toast.error(error.message || "Login Failed");
+        }
+        if (res) {
+            toast.success("You have successfully registered");
+        }
     }
 
     const handleGoogleLogin = async () => {
-        const data = await authClient.signIn.social({
+        toast.loading("Redirecting to google...");
+        await authClient.signIn.social({
             provider: "google",
         });
     }
