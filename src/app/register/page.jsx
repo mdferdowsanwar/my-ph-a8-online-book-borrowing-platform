@@ -1,11 +1,14 @@
 "use client"
 import { authClient } from '@/lib/auth-client';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
 const RegisterPage = () => {
+
+    const router = useRouter();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -19,14 +22,16 @@ const RegisterPage = () => {
             email: email,
             password: password,
             image: image_url,
-            callbackURL: "/",
         });
+
         //console.log(res, error);
         if (error) {
             toast.error(error.message);
         }
         if (res) {
-            toast.success("You have successfully registered");
+            await authClient.signOut();
+            toast.success("Registration successful. Please login");
+            router.push("/login");
         }
     }
 

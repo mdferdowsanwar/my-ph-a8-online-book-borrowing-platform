@@ -23,7 +23,7 @@ const LoginPage = () => {
             toast.error(error.message || "Login Failed");
         }
         if (res) {
-            toast.success("You have successfully registered");
+            toast.success("You have successfully logged in.");
         }
     }
 
