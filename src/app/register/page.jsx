@@ -3,7 +3,7 @@ import { authClient } from '@/lib/auth-client';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
 const RegisterPage = () => {
@@ -33,6 +33,13 @@ const RegisterPage = () => {
             toast.success("Registration successful. Please login");
             router.push("/login");
         }
+    }
+
+    const handleGoogleLogin = async () => {
+        toast.loading("Redirecting to google...");
+        await authClient.signIn.social({
+            provider: "google",
+        });
     }
 
 
@@ -85,6 +92,14 @@ const RegisterPage = () => {
                     </fieldset>
                     <button className="btn btn-neutral w-full mt-3">Register</button>
                 </form>
+
+                <p className="text-center my-2">OR</p>
+                <div className="flex items-center justify-center">
+                    <button className="btn btn-neutral w-full" onClick={handleGoogleLogin}>
+                        <FaGoogle />
+                        Login with Google
+                    </button>
+                </div>
             </div>
         </div>
     );

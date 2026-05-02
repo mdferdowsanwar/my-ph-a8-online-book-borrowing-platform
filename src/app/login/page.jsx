@@ -67,9 +67,9 @@ const LoginPage = () => {
                 </form>
 
                 <p className="text-center mt-3">Don't have an account? <Link href={"/register"}><span className="font-semibold text-[#ffda79]">Register.</span></Link> </p>
-                <p className="text-center">OR</p>
+                <p className="text-center my-2">OR</p>
                 <div className="flex items-center justify-center">
-                    <button className="btn btn-neutral" onClick={handleGoogleLogin}>
+                    <button className="btn btn-neutral w-full" onClick={handleGoogleLogin}>
                         <FaGoogle />
                         Login with Google
                     </button>

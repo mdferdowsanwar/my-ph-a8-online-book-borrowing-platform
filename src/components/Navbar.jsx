@@ -3,16 +3,22 @@ import Link from 'next/link';
 import React from 'react';
 import NavLink from './NavLink';
 import { authClient } from "@/lib/auth-client"
-import Image from 'next/image';
 import { toast } from 'react-toastify';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { Avatar } from '@heroui/react';
 
 const Navbar = () => {
-    const { data: session, isPending } = authClient.useSession();
-    const user = session?.user;
+    const userData = authClient.useSession();
+    const user = userData.data?.user;
+
+    const router = useRouter();
+
     const handleLogout = async () => {
-        const {error} = await authClient.signOut();
-        if(error) return toast.error("Logout Failed.");
+        const { error } = await authClient.signOut();
+        if (error) return toast.error("Logout Failed.");
         toast.success("Successfully Logout");
+        router.push("/login");
     }
 
 
@@ -32,25 +38,33 @@ const Navbar = () => {
                         <NavLink href={"/my-profile"}>My Profile</NavLink>
                     </li>
                 </ul>
-                { isPending ? <span className="loading loading-spinner text-warning"></span>
-                    : user ? (
-                    <div className='flex items-center gap-2'>
-                        <h3>Hello, <span className='font-semibold'>{user.name}</span></h3>
-                        {/* <Image
-                            src={user.image || userAvatar}
-                            alt='User Avatar'
-                            width={50}
-                            height={50}
-                        /> */}
-                        <button onClick={handleLogout} className='btn btn-neutral btn-sm'>
-                            Logout
-                        </button>
+
+                {/* <span className="loading loading-spinner text-warning"></span> */}
+
+                {user && <div className='flex items-center gap-2'>
+                    <h3>Hello, <span className='font-semibold'>{user.name}</span></h3>
+                    <div className="avatar">
+                        <div className="w-10 rounded-full">
+                            <Avatar>
+                                <Avatar.Image
+                                    src={user?.image}
+                                    referrerPolicy="no-referrer"
+                                    alt='Profile Avatar'
+                                />
+                                <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
+                            </Avatar>
+                        </div>
                     </div>
-                    ) : (
-                        <button className='btn btn-neutral btn-sm'>
-                            <Link href={"/login"}>Login</Link>
-                        </button>
-                    )}
+                    <button onClick={handleLogout} className='btn btn-neutral btn-sm'>
+                        Logout
+                    </button>
+                </div>}
+
+                {!user && <button className='btn btn-neutral btn-sm'>
+                    <Link href={"/login"}>Login</Link>
+                </button>
+                }
+
             </div>
         </div>
     );
