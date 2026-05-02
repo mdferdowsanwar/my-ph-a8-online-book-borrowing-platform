@@ -1,6 +1,7 @@
 import React from 'react';
-import { FaFacebookSquare } from 'react-icons/fa';
+import { FaFacebookSquare, FaMapMarkerAlt, FaPhoneVolume } from 'react-icons/fa';
 import { FaLinkedin } from 'react-icons/fa6';
+import { MdOutlineContactSupport } from 'react-icons/md';
 import { TiSocialTwitter } from 'react-icons/ti';
 
 const Footer = () => {
@@ -11,16 +12,28 @@ const Footer = () => {
                     <div className='space-y-2 flex-1'>
                         <p className='text-xl text-white'>Social Links</p>
                         <ul className='flex text-black items-center gap-4'>
-                            <li className='bg-white rounded-full w-7 h-7 flex justify-center items-center hover:text-[#ffda79] hover:bg-transparent'><a href=""><FaLinkedin /></a></li>
-                            <li className='bg-white rounded-full w-7 h-7 flex justify-center items-center hover:text-[#ffda79] hover:bg-transparent'><a href=""><FaFacebookSquare /></a></li>
-                            <li className='bg-white rounded-full w-7 h-7 flex justify-center items-center hover:text-[#ffda79] hover:bg-transparent'><a href=""><TiSocialTwitter /></a></li>
+                            <li className='bg-white rounded-full w-7 h-7 flex justify-center items-center hover:text-[#ffda79] hover:bg-transparent'><a href="#"><FaLinkedin /></a></li>
+                            <li className='bg-white rounded-full w-7 h-7 flex justify-center items-center hover:text-[#ffda79] hover:bg-transparent'><a href="#"><FaFacebookSquare /></a></li>
+                            <li className='bg-white rounded-full w-7 h-7 flex justify-center items-center hover:text-[#ffda79] hover:bg-transparent'><a href="#"><TiSocialTwitter /></a></li>
                         </ul>
                     </div>
 
-                    <ul className='flex gap-2 justify-center items-center flex-col'>
-                        <li className='hover:text-[#ffda79]'><a href="">Contact US</a></li>
-                        <li className='hover:text-[#ffda79]'><a href="">Privacy Policy</a></li>
-                        <li className='hover:text-[#ffda79]'><a href="">Terms & Condition</a></li>
+                    <ul className='flex gap-2 items-center sm:items-start flex-col'>
+                        <li className='text-xl font-semibold text-white'>
+                            Contact US
+                        </li>
+                        <li className='flex gap-2 items-center'>
+                            <FaPhoneVolume />
+                            +88013 22421186
+                        </li>
+                        <li className='flex gap-2 items-center'>
+                            <FaMapMarkerAlt />
+                            Savar, Dhaka, Bangladesh.
+                        </li>
+                        <li className='flex gap-2 items-center'>
+                            <MdOutlineContactSupport />
+                            support@onlinebookborrowing.com
+                        </li>
                     </ul>
                 </div>
                 <hr className='mt-10' />

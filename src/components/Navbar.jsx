@@ -17,8 +17,8 @@ const Navbar = () => {
     const handleLogout = async () => {
         const { error } = await authClient.signOut();
         if (error) return toast.error("Logout Failed.");
-        toast.success("Successfully Logout");
         router.push("/login");
+        toast.success("Successfully Logout");
     }
 
 
@@ -36,6 +36,9 @@ const Navbar = () => {
                     </li>
                     <li>
                         <NavLink href={"/my-profile"}>My Profile</NavLink>
+                    </li>
+                    <li>
+                        <NavLink href={"/about"}>About US</NavLink>
                     </li>
                 </ul>
 

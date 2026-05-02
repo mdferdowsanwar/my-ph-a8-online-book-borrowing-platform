@@ -14,7 +14,7 @@ const BookDetailsPage = async ({ params }) => {
         <div className='w-9/12 mx-auto my-5'>
             <h2 className='text-3xl font-semibold mb-5 text-center'>Book Details</h2>
 
-            <div className='flex justify-between items-center gap-8 bg-base-200 shadow-md p-5 w-10/12 mx-auto rounded-lg'>
+            <div className='flex flex-col sm:flex-row justify-between items-center gap-8 bg-base-200 shadow-md p-5 w-12/12 md:w-10/12 mx-auto rounded-lg'>
                 <div>
                     <Image
                         src={book.image_url}

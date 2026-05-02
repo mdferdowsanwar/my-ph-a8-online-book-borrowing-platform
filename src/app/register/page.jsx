@@ -46,7 +46,7 @@ const RegisterPage = () => {
 
     return (
         <div className="w-9/12 mx-auto my-10">
-            <div className="bg-base-200 p-5 rounded-lg w-5/12 mx-auto">
+            <div className="bg-base-200 p-5 rounded-lg w-12/12 sm:w-8/12 md:w-5/12 mx-auto">
                 <h2 className="text-2xl font-semibold text-center mb-5">Register your account</h2>
                 <hr className="my-3 text-gray-400" />
                 <form onSubmit={handleSubmit(handleRegisterFunc)} className="space-y-2">
