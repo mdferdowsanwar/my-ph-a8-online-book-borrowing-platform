@@ -9,7 +9,7 @@ const TopBooks = async () => {
     return (
         <div className='mb-5'>
             <h2 className='text-3xl font-bold my-3'>Featured Books</h2>
-            <div className='grid grid-cols sm:grid-cols-2 lg:grid-cols-4 gap-5'>
+            <div className='grid sm:grid-cols-2 lg:grid-cols-4 gap-5'>
                 {
                     topBooksData.map(book => <BookCard key={book.id} book={book} />)
                 }
